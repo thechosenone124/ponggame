@@ -6,7 +6,7 @@ import jgame.ImageCache;
 
 public class PongPaddle extends GSprite {
 	public PongPaddle() {
-		super(ImageCache.forClass(Pong.class).get("paddle.png"));
+		super(ImageCache.forClass(Pong.class).get("stick_figure.png"));
 	}
 
 }

@@ -13,9 +13,11 @@ public class Pong extends Game {
 		// TODO Auto-generated method stub
 		Pong pongGame = new Pong();
 		pongGame.startGame("Pong");
+
+	    
 	}
 	public Pong() {
-		ImageCache.create(Pong.class);
+		ImageCache.create(Pong.class, "/pong/rsc/");
 		
 		GRootContainer root = new GRootContainer(Color.BLACK);
 		setRootContainer(root);
