@@ -10,9 +10,13 @@ public class PongGameView extends GContainer {
 	    add(paddle);// Set the paddle's x position.
 	    
 	    paddle.setX(50);
-
-	    // Set the paddle's y position.
 	    paddle.setY(480 / 2);
+	    
+	    PongPuck puck = new PongPuck();
+	    add(puck);
+	    
+	    puck.setX(320);
+	    puck.setY(240);
 	}
 
 }
