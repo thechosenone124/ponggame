@@ -7,15 +7,15 @@ import jgame.controller.KeyboardLocationController;
 
 
 public class PongPaddle extends GSprite {
-	public PongPaddle() {
+	public PongPaddle(ControlScheme cs) {
 		super(ImageCache.forClass(Pong.class).get("stick_figure.png"));
 		// Create a keyboard movement controller.
-		KeyboardLocationController klc = new KeyboardLocationController(
-		        ControlScheme.ARROW_KEYS,10);
+		KeyboardLocationController klc = new KeyboardLocationController(cs,10);
 		// Add the new controller.
 		addController(klc);
 		// Disable horizontal movement.
 		klc.setHorizontalAllowed(false);
 	}
+	
 
 }
