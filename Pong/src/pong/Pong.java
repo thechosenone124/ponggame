@@ -27,6 +27,8 @@ public class Pong extends Game {
 		
 		GameOverView gameOverView = new GameOverView();
 		root.addView(View.GAME_OVER, gameOverView);
+		
+		
 	}
 	public enum View {
 		GAME, GAME_OVER;

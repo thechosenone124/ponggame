@@ -14,7 +14,7 @@ import jgame.listener.ParentBoundsListener;
 public class PongPuck extends GSprite {
 	private ConstantMovementController cmc;
 	public PongPuck() {
-		super(ImageCache.forClass(Pong.class).get("puck.png"));
+		super(ImageCache.forClass(Pong.class).get("soccer_ball.png"));
 		
 		// Create the controller.
 		cmc = new ConstantMovementController(-5, Math.random() * 2 - 1);
@@ -22,8 +22,7 @@ public class PongPuck extends GSprite {
 		// Add the controller.
 		addController(cmc);
 		
-		// Remove the puck when it's outside the game bounds.
-				addListener(new BoundaryRemovalListener());
+
 				
 				// Create the hit test listener.
 				HitTestListener htl = new HitTestListener(PongPaddle.class) {
@@ -63,6 +62,9 @@ public class PongPuck extends GSprite {
 				addListener(bounce);
 				// Add the listener.
 				addListener(htl);
+				
+				// Remove the puck when it's outside the game bounds.
+				addListener(new BoundaryRemovalListener());
 				
 			}
 			public void flip() {
