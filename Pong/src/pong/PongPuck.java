@@ -21,17 +21,19 @@ public class PongPuck extends GSprite {
 	private int flipY = -1; 
 	public PongPuck() {
 		super(ImageCache.forClass(Pong.class).get("soccer_ball.png"));
-		double vx = (Math.random() > 0.5) ? 5 : -5;
 		// Create the controller.
 		
-		boolean goRight = new Random().nextBoolean();
 		
+		boolean goRight = new Random().nextBoolean();
+		double vx = goRight ? 5 : -5;
 		cmc = new ConstantMovementController(vx, Math.random() * 2 - 1);
 
 		lastBounceWasLeft = goRight;
 		
 		// Add the controller.
 		addController(cmc);
+				
+		
 				TimerListener tl = new TimerListener(30*30) {
 					
 					@Override

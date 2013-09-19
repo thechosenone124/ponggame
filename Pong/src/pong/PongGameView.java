@@ -1,5 +1,6 @@
 package pong;
 
+import java.util.Collection;
 import java.util.List;
 
 import jgame.Context;
@@ -9,6 +10,7 @@ import jgame.GSprite;
 import jgame.ImageCache;
 import jgame.controller.ControlScheme;
 import jgame.listener.FrameListener;
+import jgame.listener.TimerListener;
 
 public class PongGameView extends GContainer {
 	public PongGameView(){
@@ -33,6 +35,21 @@ public class PongGameView extends GContainer {
 	    // Set the paddle's location.
 	    paddle2.setLocation(640 - 50, 480 / 2);
 	    
+	    TimerListener tl3 = new TimerListener(30*10) {
+			
+			@Override
+			public void invoke(GObject target, Context context) {
+				Collection<GObject> children = getObjects();
+				for (GObject someChild : children) {
+					if (someChild instanceof PowerUp) {
+						someChild.removeSelf();
+					}
+				}
+				PowerUp unpredictable = new PowerUp();
+				addAt(unpredictable, (int)(Math.random() * 550 + 90), (int)(Math.random() * 380 + 50));
+			}
+		};
+	    
 	    FrameListener fl = new FrameListener() {
 	        @Override
 	        public void invoke(GObject target, Context context) {
@@ -48,6 +65,7 @@ public class PongGameView extends GContainer {
 	        }
 	    };
 	    addListener(fl);
+	    addListener(tl3);
 	}
 
 }
