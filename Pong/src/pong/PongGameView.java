@@ -9,7 +9,6 @@ import jgame.GSprite;
 import jgame.ImageCache;
 import jgame.controller.ControlScheme;
 import jgame.listener.FrameListener;
-import jgame.listener.HitTestListener;
 
 public class PongGameView extends GContainer {
 	public PongGameView(){

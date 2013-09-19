@@ -5,7 +5,6 @@ import jgame.GRootContainer;
 import jgame.Game;
 import jgame.ImageCache;
 
-import jgame.Game;
 
 public class Pong extends Game {
 
