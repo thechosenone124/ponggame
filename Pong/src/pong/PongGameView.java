@@ -46,7 +46,7 @@ public class PongGameView extends GContainer {
 					}
 				}
 				PowerUp unpredictable = new PowerUp();
-				addAt(unpredictable, (int)(Math.random() * 550 + 90), (int)(Math.random() * 380 + 50));
+				addAt(unpredictable, Math.random() * 550 + 90, Math.random() * 380 + 50);
 			}
 		};
 	    
