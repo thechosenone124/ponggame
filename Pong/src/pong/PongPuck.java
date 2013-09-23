@@ -12,7 +12,6 @@ import jgame.listener.BoundaryRemovalListener;
 import jgame.listener.FrameListener;
 import jgame.listener.HitTestListener;
 import jgame.listener.ParentBoundsListener;
-import jgame.listener.TimerListener;
 
 public class PongPuck extends GSprite {
 	private ConstantMovementController cmc;
@@ -37,11 +36,52 @@ public class PongPuck extends GSprite {
 
 			@Override
 			public void invoke(GObject target, Context context) {
+				// Get the current velocity.
+				double vx = cmc.getVelocityX();
+
+				// Test the sign.
+				if (vx > 0) {
+				    vx += 5;
+				} else if (vx < 0) {
+				    vx -= 5;
+				} else {
+				    // It's zero; do nothing.
+				}
+
+				// Set the velocity.
+				cmc.setVelocityX(vx);
 				bounceFactor = bounceFactor * -1;
-				flipY = flipY * -1;
 				List<PowerUp> hit = context.hitTestClass(PowerUp.class);
 				for (PowerUp p : hit) {
 					p.removeSelf();
+				}
+				
+			}
+		};
+		
+		HitTestListener htl3 = new HitTestListener(PowerUp2.class) {
+
+			@Override
+			public void invoke(GObject target, Context context) {
+				// Get the current velocity.
+				double vx = cmc.getVelocityX();
+
+				// Test the sign.
+				if (vx > 0) {
+				    vx += 0.05;
+				} else if (vx < 0) {
+				    vx -= 0.05;
+				} else {
+				    // It's zero; do nothing.
+				}
+
+				// Set the velocity.
+				cmc.setVelocityX(vx);
+				
+				flipY = flipY * -1;
+				List<PowerUp2> hit = context.hitTestClass(PowerUp2.class);
+				for (PowerUp2 p2 : hit) {
+					p2.removeSelf();
 				}
 			}
 		};
@@ -119,6 +159,8 @@ public class PongPuck extends GSprite {
 		addListener(new BoundaryRemovalListener());
 		// Add powerup listener
 		addListener(htl2);
+		//add powerup2 listener
+		addListener(htl3);
 
 	}
 
