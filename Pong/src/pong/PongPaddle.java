@@ -4,12 +4,15 @@ import jgame.Context;
 import jgame.GObject;
 import jgame.GSprite;
 import jgame.ImageCache;
+import jgame.controller.ConstantRotationController;
 import jgame.controller.ControlScheme;
 import jgame.controller.KeyboardLocationController;
+import jgame.controller.MouseRotationController;
 import jgame.listener.FrameListener;
 import jgame.listener.ParentBoundsListener;
 public class PongPaddle extends GSprite {
 	private int paddleSpeed = 10;
+
 	
 	public PongPaddle(ControlScheme cs) {
 		super(ImageCache.forClass(Pong.class).get("stick_figure.png"));
@@ -26,9 +29,13 @@ public class PongPaddle extends GSprite {
 			@Override
 			public void invoke(GObject target, Context context) {
 				// TODO Auto-generated method stub
+//				double vp = klc.getMaxSpeed();
 				paddleSpeed = paddleSpeed+5;
+				
+//				klc.setMaxSpeed(paddleSpeed);
 			}
 		};
+		
 		
 		// Disallow movement out of bounds.
 		ParentBoundsListener limiter = new ParentBoundsListener() {
@@ -54,6 +61,10 @@ public class PongPaddle extends GSprite {
 		    }
 		    
 		};
+		
+		//MouseRotationController crc = new MouseRotationController();
+				
+	
 
 		// Vertical only.
 		limiter.setValidateHorizontal(false);
@@ -61,6 +72,8 @@ public class PongPaddle extends GSprite {
 		// Add the listener.
 		addListener(limiter);
 		addListener(fl1);
+		//addController(crc);
+
 	};
 
 	

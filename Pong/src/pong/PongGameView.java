@@ -10,6 +10,7 @@ import jgame.GObject;
 import jgame.GSprite;
 import jgame.ImageCache;
 import jgame.controller.ControlScheme;
+import jgame.controller.MouseRotationController;
 import jgame.listener.FrameListener;
 import jgame.listener.TimerListener;
 
@@ -33,6 +34,7 @@ public class PongGameView extends GContainer {
 		// Create another paddle to add.
 		PongPaddle paddle2 = new PongPaddle(ControlScheme.ARROW_KEYS);
 		add(paddle2);
+		
 
 		// Set the paddle's location.
 		paddle2.setLocation(640 - 50, 480 / 2);

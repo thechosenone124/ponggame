@@ -31,6 +31,8 @@ public class PongPuck extends GSprite {
 
 		// Add the controller.
 		addController(cmc);
+		
+		
 
 		HitTestListener htl2 = new HitTestListener(PowerUp.class) {
 
@@ -41,9 +43,9 @@ public class PongPuck extends GSprite {
 
 				// Test the sign.
 				if (vx > 0) {
-				    vx += 5;
+				    vx += 2.5;
 				} else if (vx < 0) {
-				    vx -= 5;
+				    vx -= 7.5;
 				} else {
 				    // It's zero; do nothing.
 				}
@@ -68,9 +70,9 @@ public class PongPuck extends GSprite {
 
 				// Test the sign.
 				if (vx > 0) {
-				    vx += 0.05;
+				    vx += 7.5;
 				} else if (vx < 0) {
-				    vx -= 0.05;
+				    vx -= 2.5;
 				} else {
 				    // It's zero; do nothing.
 				}
